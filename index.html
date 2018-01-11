@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<title>Simple Construction Calculator</title>
+<style type="text/css">
+#mainContent {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	background-color: #E3F0FB;
+	border-radius: 4px;
+	padding: 10px;
+	text-align: center;
+}
+</style>
+</head>
+
+<body>
+<div id="mainContent">
+	<h1>00-00-00<br />Calculator</h1>
+	<input type="text" id="f" placeholder="0.000" onkeydown="calculate(this)"/>
+	<p id="result"></p>
+</div>
+
+<script>
+	var temp;
+	var inchTrue
+	var foot = 0, inch = 0, six = 0;
+	var decimal, fis, result; 
+	var history;
+	
+	function calculate(num) {
+	    if(event.keyCode == 13) {
+	       temp = num.value;
+	       inchTrue = temp * 12;
+	       decimal = inchTrue - Math.floor(inchTrue);
+	       
+	       foot = Math.floor(temp)
+	       inch = Math.floor(inchTrue) - (foot * 12);
+	       six  = Math.floor(decimal * 16);
+	      
+	       fis = temp + "'" + " -> " + foot + "-" + inch + "-" + six + "<br />";
+	       
+	       if(!history){
+	       	result = fis
+	       }else {
+	       	result = fis + document.getElementById('result').innerHTML;
+	       }
+	       
+	       document.getElementById('result').innerHTML = result;
+	       
+	       document.getElementById('f').value = '';
+	    }
+	}
+
+</script>
+
+</body>
+</html>
