@@ -7,11 +7,19 @@
 <style type="text/css">
 #mainContent {
 	font-family: Arial, Helvetica, sans-serif;
-	font-weight: bold;
 	background-color: #E3F0FB;
 	border-radius: 4px;
 	padding: 10px;
 	text-align: center;
+}
+
+.fis{
+	font-size: 18px;
+}
+
+.remainder {
+	font-size: 12px;
+	padding-bottom: 18px;
 }
 </style>
 </head>
@@ -25,9 +33,11 @@
 
 <script>
 	var temp;
-	var inchTrue
+	var userInput;
+	var inchTrue;
+	var sixTrue;
 	var foot = 0, inch = 0, six = 0;
-	var decimal, fis, result, remainder; 
+	var decimal, fis, result, remainder, rounding, outputOne, outputTwo; 
 	var history;
 	
 	function calculate(num) {
@@ -41,13 +51,19 @@
 	       inch = Math.floor(inchTrue) - (foot * 12);
 	       six  = Math.floor(sixTrue);
 	       remainder = sixTrue - six;
-		    
-	       fis = temp + "'" + " -> " + foot + "-" + inch + "-" + six + "<br />" + "+" + remainder.toFixed(2) + " / 16" + "<br /><br />";
+		   
+		   fis = foot + "-" + inch + "-" + six;
+		   userInput = temp + "'";
+		   rounding = "+" + remainder.toFixed(2) + " / 16";
+		   
+		   
+	       outputOne = "<div class='fis'>" + userInput + " = " + fis + "</div>";
+	       outputTwo = "<div class='remainder'>" + rounding + "</div>";
 	       
 	       if(!history){
-	       	result = fis
+	       	result = outputOne + outputTwo
 	       }else {
-	       	result = fis + document.getElementById('result').innerHTML;
+	       	result = outputOne + outputTwo + document.getElementById('result').innerHTML;
 	       }
 	       
 	       document.getElementById('result').innerHTML = result;
