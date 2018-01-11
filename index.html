@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+"<!DOCTYPE html>
 <html lang="en-us">
 
 <head>
@@ -27,7 +27,7 @@
 	var temp;
 	var inchTrue
 	var foot = 0, inch = 0, six = 0;
-	var decimal, fis, result; 
+	var decimal, fis, result, remainder; 
 	var history;
 	
 	function calculate(num) {
@@ -35,12 +35,14 @@
 	       temp = num.value;
 	       inchTrue = temp * 12;
 	       decimal = inchTrue - Math.floor(inchTrue);
+	       sixTrue = decimal * 16;
 	       
 	       foot = Math.floor(temp)
 	       inch = Math.floor(inchTrue) - (foot * 12);
-	       six  = Math.floor(decimal * 16);
-	      
-	       fis = temp + "'" + " -> " + foot + "-" + inch + "-" + six + "<br />";
+	       six  = Math.floor(sixTrue);
+	       remainder = sixTrue - six;
+		    
+	       fis = temp + "'" + " -> " + foot + "-" + inch + "-" + six + " | " + remainder + "<br />";
 	       
 	       if(!history){
 	       	result = fis
