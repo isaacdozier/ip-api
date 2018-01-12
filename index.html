@@ -4,47 +4,7 @@
 <head>
 <meta charset="utf-8">
 <title>Simple Construction Calculator</title>
-<style type="text/css">
-#Content {
-	font-family: Arial, Helvetica, sans-serif;
-	background-color: #c2dade;
-	border-radius: 8px;
-	padding: 10px;
-	text-align: center;
-}
-
-.heading{
-	font-size: 27px;
-}
-
-.fis{
-	font-size: 18px;
-}
-
-.rem-1{
-	color: green;
-}
-
-.rem--1{
-	color: red;
-}
-
-.rem-0 rem--0 rem-NaN{
-	color: blue;
-}
-
-.remainder {
-	font-size: 12px;
-	padding-bottom: 18px;
-}
-
-.foot{
-	font-size: 10px;
-	font-weight: lighter;
-	color: grey;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
@@ -53,50 +13,11 @@
 		<h1 class="heading">00-00-00<br />Calculator</h1>
 		<input type="text" id="f" placeholder="0.000" onkeydown="calculate(this)"/>
 		<p id="result"></p>
-		<p class="foot">Version: 1.0.1-alpha</p>
+		<p class="foot">Version: 1.0.11-alpha</p>
 	</span>
 </div>
 
-<script>
-	var userInput;
-	var inchTrue, footTrue, sixTrue, sixDeci, sixRoun, sixRema;
-	var remP, remN;
-	var foot = 0, inch = 0, six = 0;
-	var fis, result, outputOne, outputTwo; 
-	var dec = 0, rem;
-	var history;
-	
-	function calculate(num) {
-	    if(event.keyCode == 13) {
-	       footTrue = num.value;
-	       inchTrue = num.value * 12;
-	       sixTrue  = inchTrue * 16;
-	       sixRoun = Math.round(sixTrue);
-		   
-		   foot = Math.floor((sixRoun / 16) / 12);
-	       inch = Math.floor(sixRoun / 16) - (foot * 12);
-	       six  = sixRoun - (((foot * 12) + inch) * 16);
-	       dec  = sixTrue - sixRoun;
-		   
-		   fis = foot + "-" + inch + "-" + six;
-		   userInput = num.value + "'";
-		   
-	       outputOne = "<div class='fis'>" + userInput + " = " + fis + "</div>";
-	       outputTwo = "<div class='remainder'><span class='rem-" + Math.sign(dec.toFixed(2)) + "'>" + dec.toFixed(2) + "</span>" + " / 16</div>";
-	       
-	       if(!history){
-	       	result = outputOne + outputTwo
-	       }else {
-	       	result = outputOne + outputTwo + document.getElementById('result').innerHTML;
-	       }
-	       
-	       document.getElementById('result').innerHTML = result;
-	       
-	       document.getElementById('f').value = '';
-	    }
-	}
-
-</script>
+<script src="calculate.js"></script>
 
 </body>
 </html>

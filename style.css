@@ -1,0 +1,44 @@
+#Content {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #dedcc2;
+	border-radius: 8px;
+	padding: 10px;
+	text-align: center;
+}
+
+.decimal{
+	font-size: 0.68em;
+	padding-left: 6px;
+    vertical-align: top;
+}
+
+.heading{
+	font-size: 27px;
+}
+
+.fis{
+	font-size: 18px;
+}
+
+.rem-1{
+	color: green;
+}
+
+.rem--1{
+	color: red;
+}
+
+.rem-0, rem--0, rem-NaN{
+	color: blue;
+}
+
+.remainder {
+	font-size: 12px;
+	padding-bottom: 18px;
+}
+
+.foot{
+	font-size: 10px;
+	font-weight: lighter;
+	color: grey;
+}
