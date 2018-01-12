@@ -6,6 +6,11 @@
 	text-align: center;
 }
 
+.output{
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
 .decimal{
 	font-size: 0.68em;
 	padding-left: 6px;
@@ -30,11 +35,6 @@
 
 .rem-0, rem--0, rem-NaN{
 	color: blue;
-}
-
-.remainder {
-	font-size: 12px;
-	padding-bottom: 18px;
 }
 
 .foot{

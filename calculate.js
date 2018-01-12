@@ -21,7 +21,7 @@ function calculate(num) {
 	   fis = foot + " - " + inch + " - " + six;
 	   userInput = num.value + "'";
 	   
-       output = "<div><span class='fis'>" 
+       output = "<div class='output'><span class='fis'>" 
                         + userInput + " = " + fis 
                     + "</span>"
                     + "<span class='decimal rem-" 
