@@ -1,6 +1,6 @@
 var userInput;
 var inchTrue, footTrue, sixTrue, sixDeci, sixRoun, sixRema;
-var remP, remN;
+var rem, p = '';
 var foot = 0, inch = 0, six = 0;
 var fis, result, output; 
 var dec = 0, rem;
@@ -19,14 +19,20 @@ function calculate(num) {
        dec  = sixTrue - sixRoun;
 	   
 	   fis = foot + " - " + inch + " - " + six;
+	   rem = dec.toFixed(2);
 	   userInput = num.value + "'";
+	   
+	   p = '';
+	   if(rem > 0){
+           p = "+";
+       }
 	   
        output = "<div class='output'><span class='fis'>" 
                         + userInput + " = " + fis 
                     + "</span>"
                     + "<span class='decimal rem-" 
-                    + Math.sign(dec.toFixed(2)) + "'>" 
-                        + dec.toFixed(2) + " / 16"
+                    + Math.sign(dec.toFixed(2)) + "'>"
+                    +  p  + rem + " / 16"
                     + "</span>" 
               + "</div>";
        
