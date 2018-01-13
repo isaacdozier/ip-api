@@ -9,13 +9,21 @@
 
 <body>
 <div id="Content">
-	<span>
-		<h1 class="heading">Precision Construction Calculator</h1>
-		<p>0.000' >> 00-00-00</p>
-		<input type="text" id="f" placeholder="0.000" onkeydown="calculate(this)"/>
+		<div>
+			<h1 class="heading">Precision Inch Fraction<br />Construction Calculator</h1>
+		</div>
+		<input type="text" id="f" placeholder="0.00" onkeydown="calculate(this)"/>
+		<p id="userMessage"></p>
 		<p id="result"></p>
-		<p class="foot">Version: 1.0.13-alpha</p>
-	</span>
+		<div>
+			<p class="conversion">0.000'  >>>  00-00-00</p>
+			<p class="conversion">Convert Decimal to Foot-Inch-Sixteenth</p>
+			<p class="foot">
+				Version: 1.0.13-alpha
+				<br />
+				Pre-Production
+			</p>
+		</div>
 </div>
 
 <script src="calculate.js"></script>

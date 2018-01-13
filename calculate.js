@@ -9,6 +9,9 @@ var history;
 
 function calculate(num) {
     if(event.keyCode == 13) {
+        if(num.value === ''){
+            document.getElementById('userMessage').innerHTML = 'enter a number';
+        } else
         if(!isNaN(num.value)){
             temp = num.value;
             tempActive = false;
@@ -41,7 +44,7 @@ function calculate(num) {
             }
     	   
             output = "<div class='output'><span class='fis'>" 
-                         + userInput + " = " + n + fis 
+                        + userInput + " = " + n + fis 
                         + "</span>"
                         + "<span class='decimal rem-" 
                         + Math.sign(dec.toFixed(2)) + "'>"
@@ -53,8 +56,9 @@ function calculate(num) {
             historyCheck();
             document.getElementById('result').innerHTML = result;
             
-            //clear input box
+            //clear input box & user message
             document.getElementById('f').value = '';
+            document.getElementById('userMessage').innerHTML = '';
         } else {
             
             output = "<div class='output error'>" + 
@@ -64,6 +68,7 @@ function calculate(num) {
             //add error message to history
             historyCheck();
             document.getElementById('result').innerHTML = result;
+            document.getElementById('userMessage').innerHTML = 'enter a number';
             
             //clear input box
             document.getElementById('f').value = '';

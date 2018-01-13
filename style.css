@@ -6,6 +6,11 @@
 	text-align: center;
 }
 
+#f{
+	font-size: 26px;
+	width: 100%;
+}
+
 .output{
 	padding-top: 8px;
 	padding-bottom: 8px;
@@ -15,6 +20,10 @@
 	color: #e12339;
 }
 
+.converstion{
+	font-size: 14px;
+}
+
 .decimal{
 	font-size: 0.68em;
 	padding-left: 6px;
@@ -22,7 +31,8 @@
 }
 
 .heading{
-	font-size: 24px;
+	font-size: 22px;
+    font-family: monospace;
 }
 
 .fis{
