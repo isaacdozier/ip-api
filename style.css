@@ -11,6 +11,10 @@
 	padding-bottom: 8px;
 }
 
+.error{
+	color: #e12339;
+}
+
 .decimal{
 	font-size: 0.68em;
 	padding-left: 6px;
@@ -18,7 +22,7 @@
 }
 
 .heading{
-	font-size: 27px;
+	font-size: 24px;
 }
 
 .fis{
