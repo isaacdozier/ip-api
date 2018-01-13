@@ -13,12 +13,14 @@ function calculate(num) {
             document.getElementById('userMessage').innerHTML = 'enter a number';
         } else
         if(!isNaN(num.value)){
+            
             temp = num.value;
             tempActive = false;
             if(num.value < 0){
                 temp = num.value * -1;
                 tempActive = true;
             }
+            
             footTrue = temp;
             inchTrue = temp * 12;
             sixTrue  = inchTrue * 16;
@@ -32,6 +34,10 @@ function calculate(num) {
     	    fis = foot + " - " + inch + " - " + six;
     	    rem = dec.toFixed(2);
     	    userInput = num.value + "'";
+    	    
+    	    if(tempActive){
+    	        rem = rem * -1;
+    	    }
     	   
     	    p = '';
     	    if(rem > 0){
