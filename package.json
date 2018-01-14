@@ -1,0 +1,28 @@
+{
+  "name": "fis-calculator",
+  "version": "1.0.1",
+  "description": "converts decimal numbers to inch fraction format",
+  "main": "api/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaacdozier/fis-calculator/api/index.git"
+  },
+  "keywords": [
+    "inch",
+    "fraction",
+    "number",
+    "converter",
+    "construction",
+    "calculator",
+    "precision"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isaacdozier/fis-calculator/issues"
+  },
+  "homepage": "https://github.com/isaacdozier/fis-calculator#readme"
+}
