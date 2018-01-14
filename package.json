@@ -1,6 +1,6 @@
 {
   "name": "fis-calculator",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "converts decimal numbers to inch fraction format",
   "main": "src.js",
   "scripts": {
