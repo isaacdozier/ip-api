@@ -2,13 +2,13 @@
   "name": "fis-calculator",
   "version": "1.0.4",
   "description": "converts decimal numbers to inch fraction format",
-  "main": "/api/index.js",
+  "main": "src.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node $npm_package_main"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/isaacdozier/fis-calculator/api/index.git"
+    "url": "git+https://github.com/isaacdozier/fis-calculator/src.git"
   },
   "keywords": [
     "inch",

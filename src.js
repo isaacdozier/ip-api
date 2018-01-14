@@ -6,7 +6,7 @@ var dec = 0, rem
 var history
 var errorMsg = 'error'
 
-var fis = (function (num) {
+var fisConvert = (function (num) {
     if(event.keyCode == 13) {
         if(num.value === ''){
             return [0, errorMsg]
