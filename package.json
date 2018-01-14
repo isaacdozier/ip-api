@@ -2,7 +2,7 @@
   "name": "fis-calculator",
   "version": "1.0.2",
   "description": "converts decimal numbers to inch fraction format",
-  "main": "api/index.js",
+  "main": "/api/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
