@@ -6,7 +6,7 @@ var dec = 0, rem
 var history
 var errorMsg = 'error'
 
-function calculate(num) {
+var fis = (function (num) {
     if(event.keyCode == 13) {
         if(num.value === ''){
             return [0, errorMsg]
@@ -43,4 +43,4 @@ function calculate(num) {
             return [2, errorMsg]
         }
     }
-}
+})
