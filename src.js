@@ -1,12 +1,14 @@
-var temp, tempActive = false
-var inchTrue, footTrue, sixTrue, sixDeci, sixRoun
-var foot = 0, inch = 0, six = 0
-var fis, result, output 
-var dec = 0, rem
-var history
-var errorMsg = 'error'
+
 
 var fisConvert = (function (num) {
+    var temp, tempActive = false
+    var inchTrue, footTrue, sixTrue, sixDeci, sixRoun
+    var foot = 0, inch = 0, six = 0
+    var fis, result, output 
+    var dec = 0, rem
+    var history
+    var errorMsg = 'error'
+    
     if(event.keyCode == 13) {
         if(num.value === ''){
             return [0, errorMsg]

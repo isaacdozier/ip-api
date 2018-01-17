@@ -1,93 +1,188 @@
-var userInput;
-var temp, tempActive = false;
-var inchTrue, footTrue, sixTrue, sixDeci, sixRoun, sixRema;
+var userInput = '';
+var tempActive = false;
+var inchTrue, footTrue, sixTrue, sixRoun;
 var rem, p = '', n = '';
 var foot = 0, inch = 0, six = 0;
-var fis, result, output; 
-var dec = 0, rem;
+var fis, result, outputOne, outputTwo, compile; 
+var dec = 0;
 var history;
 
 function calculate(num) {
     if(event.keyCode == 13) {
         if(num.value === ''){
-            document.getElementById('userMessage').innerHTML = 'enter a number';
-        } else
-        if(!isNaN(num.value)){
-            
-            temp = num.value;
-            tempActive = false;
-            if(num.value < 0){
-                temp = num.value * -1;
-                tempActive = true;
-            }
-            
-            footTrue = temp;
-            inchTrue = temp * 12;
-            sixTrue  = inchTrue * 16;
-            sixRoun = Math.round(sixTrue);
-    	   
-    	    foot = Math.floor((sixRoun / 16) / 12);
-            inch = Math.floor(sixRoun / 16) - (foot * 12);
-            six  = sixRoun - (((foot * 12) + inch) * 16);
-            dec  = sixTrue - sixRoun;
-    	   
-    	    fis = foot + " - " + inch + " - " + six;
-    	    rem = dec.toFixed(2);
-    	    userInput = num.value + "'";
-    	    
-    	    if(tempActive){
-    	        rem = rem * -1;
-    	    }
-    	   
-    	    p = '';
-    	    if(rem > 0){
-               p = "+";
-            }
-            
-            n= '';
-            if(tempActive === true){
-                n = "-";
-            }
-    	   
-            output = "<div class='output'><span class='fis'>" 
-                        + userInput + " = " + n + fis 
-                        + "</span>"
-                        + "<span class='decimal rem-" 
-                        + Math.sign(dec.toFixed(2)) + "'>"
-                        +  p  + rem + " / 16"
-                        + "</span>" 
-                   + "</div>";
-            
-            //compile history
-            historyCheck();
-            document.getElementById('result').innerHTML = result;
-            
-            //clear input box & user message
-            document.getElementById('f').value = '';
-            document.getElementById('userMessage').innerHTML = '';
-        } else {
-            
-            output = "<div class='output error'>" + 
-                        errorMsg
-                   + "</div>";
-            
-            //add error message to history
-            historyCheck();
-            document.getElementById('result').innerHTML = result;
-            document.getElementById('userMessage').innerHTML = 'enter a number';
-            
-            //clear input box
-            document.getElementById('f').value = '';
+            printAlert();
+        } 
+        else
+        if(isNumber(num.value)){
+             printOutput(num.value,convertDecToFis(num.value));
+        } 
+        else 
+        if(isFis(num.value)){
+            printOutput(num.value,convertFisToDec(num.value));
+        } 
+        else 
+        if(isExpression(num.value)){
+            printOutput(num.value,convertDecToFis(doMath(num.value)));
+        } 
+        else {
+            printError(num.value);
         }
     }
 }
 
-var errorMsg = "error";
-
-function historyCheck(){
-    if(!history){
-    	result = output;
-    }else {
-   	    result = output + document.getElementById('result').innerHTML;
+function doMath(exp){
+    var list = exp.split("+");
+    console.log(list[0]);
+    
+    // add empty index 0 to store result
+    list.splice(0,0,0);
+    
+    //loop through expression, do some math
+    while(list.length > 1){
+        var temp = list[1];
+        console.log(list[1]);
+        if(isFis(list[1])){
+            console.log(list[1]);
+            temp = convertFisToDec(list[1])[0]
+            console.log(temp[1]);
+        } 
+        list[0] = Number(list[0]) + Number(temp);
+        list.splice(1,1);
+        console.log(list[0]);
     }
+    
+    console.log(list[0]);
+    
+    // convert expression result to FIS standard
+    return Number(list[0]);
+}
+
+function convertDecToFis(decimal){
+    var temp = decimal;
+    tempActive = false;
+    if(decimal < 0){
+        temp = decimal * -1;
+        tempActive = true;
+    }
+    
+    footTrue = temp;
+    inchTrue = temp * 12;
+    sixTrue  = inchTrue * 16;
+    sixRoun = Math.round(sixTrue);
+   
+    foot = Math.floor((sixRoun / 16) / 12);
+    inch = Math.floor(sixRoun / 16) - (foot * 12);
+    six  = sixRoun - (((foot * 12) + inch) * 16);
+    dec  = sixTrue - sixRoun;
+   
+    fis = foot + " - " + inch + " - " + six;
+    rem = (dec*100).toFixed(2);
+    
+    return [fis,rem]
+}
+
+function convertFisToDec(fis){
+    var temp = fis.split('-');
+    
+    tempActive = false;
+    if(temp[0] === '' && temp.length > 3){
+        tempActive = true;
+        temp.splice(0,1);
+    }
+    
+    temp[1] = temp[1] / 12;
+    temp[2] = (temp[2] / 16) / 12;
+    console.log (temp);
+    dec = (Number(temp[0]) + temp[1] + temp[2]).toFixed(3);
+   
+    return [dec];
+}
+
+
+
+function printOutput(a,b){
+    var remainder = (b[1]/100).toFixed(2);
+    
+    n = '';
+    if(tempActive){
+        remainder = remainder * -1;
+        n = "-";
+    }
+    
+    p = '';
+    if(remainder > 0){
+        p = "+";
+    }
+    
+    outputOne = "<span class='fis'>" 
+                    + a + " = " + n + b[0] 
+                + "</span>";
+                
+    if(b[1]){
+        outputTwo = "<span class='decimal rem-" 
+                        + Math.sign(remainder) + "'>"
+                        + p + remainder
+                    + "</span>";
+    } else{
+        outputTwo = '';
+    }
+    
+    compile = "<div class='output'>" + outputOne + outputTwo + "</div>";
+    
+    //compile history
+    document.getElementById('result').innerHTML = historyCheck(compile);
+    
+    //clear input box & user message
+    document.getElementById('f').value = '';
+    document.getElementById('userMessage').innerHTML = '';
+}
+
+function printError(source){
+    var errorMsg = "error:" + toString(source) + "is not a number or expression";
+    outputOne = "<div class='output error'>" + errorMsg + "</div>";
+    
+    //compile history
+    document.getElementById('result').innerHTML = historyCheck(outputOne);
+    document.getElementById('userMessage').innerHTML = 'enter a number';
+    
+    //clear input box & user message
+    document.getElementById('f').value = '';
+    document.getElementById('userMessage').innerHTML = '';
+}
+
+function printAlert(){
+    document.getElementById('userMessage').innerHTML = 'enter a number';
+}
+
+function historyCheck(h){
+    if(!history){
+    	return h;
+    }else {
+   	    return h + document.getElementById('result').innerHTML;
+    }
+}
+
+function isNumber(x){
+    return !isNaN(x)
+}
+
+function isFis(z){
+    var zArray = z.split('-');
+    var length = zArray.length;
+    console.log(z)
+    if(zArray[0] === ''){
+        z.splice(0,1);
+    }
+    var len   = length === 3;
+    var isNumOne = isNumber(zArray[0]);
+    var isNumTwo = isNumber(zArray[length-1])
+    console.log(zArray[length]);
+    console.log(isNumTwo);
+    console.log(length);
+    return len && isNumOne && isNumTwo
+    
+}
+
+function isExpression(y){
+    return y.split('+').length > 1
 }
