@@ -32,7 +32,6 @@ function calculate(num) {
 
 function doMath(exp){
     var list = exp.split("+");
-    console.log(list[0]);
     
     // add empty index 0 to store result
     list.splice(0,0,0);
@@ -40,18 +39,12 @@ function doMath(exp){
     //loop through expression, do some math
     while(list.length > 1){
         var temp = list[1];
-        console.log(list[1]);
         if(isFis(list[1])){
-            console.log(list[1]);
             temp = convertFisToDec(list[1])[0]
-            console.log(temp[1]);
         } 
         list[0] = Number(list[0]) + Number(temp);
         list.splice(1,1);
-        console.log(list[0]);
     }
-    
-    console.log(list[0]);
     
     // convert expression result to FIS standard
     return Number(list[0]);
@@ -59,6 +52,7 @@ function doMath(exp){
 
 function convertDecToFis(decimal){
     var temp = decimal;
+    
     tempActive = false;
     if(decimal < 0){
         temp = decimal * -1;
@@ -120,7 +114,7 @@ function printOutput(a,b){
                 
     if(b[1]){
         outputTwo = "<span class='decimal rem-" 
-                        + Math.sign(remainder) + "'>"
+                        + Math.sign(b[1]) + "'>"
                         + p + remainder
                     + "</span>";
     } else{
@@ -169,16 +163,15 @@ function isNumber(x){
 function isFis(z){
     var zArray = z.split('-');
     var length = zArray.length;
-    console.log(z)
+    
     if(zArray[0] === ''){
         z.splice(0,1);
     }
+    
     var len   = length === 3;
     var isNumOne = isNumber(zArray[0]);
     var isNumTwo = isNumber(zArray[length-1])
-    console.log(zArray[length]);
-    console.log(isNumTwo);
-    console.log(length);
+    
     return len && isNumOne && isNumTwo
     
 }
