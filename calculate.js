@@ -132,7 +132,7 @@ function printOutput(a,b){
 }
 
 function printError(source){
-    var errorMsg = "error:" + toString(source) + "is not a number or expression";
+    var errorMsg = "error:" + source + " is not a number or expression";
     outputOne = "<div class='output error'>" + errorMsg + "</div>";
     
     //compile history
