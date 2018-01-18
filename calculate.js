@@ -7,25 +7,26 @@ var fis, result, outputOne, outputTwo, compile;
 var dec = 0;
 var history;
 
-function calculate(num) {
-    if(event.keyCode == 13) {
-        if(num.value === ''){
+function calculate() {
+    var temp = document.getElementById('f');
+    if(event.keyCode == 13 || event.button == 0) {
+        if(temp.value === ''){
             printAlert();
         } 
         else
-        if(isNumber(num.value)){
-             printOutput(num.value,convertDecToFis(num.value));
+        if(isNumber(temp.value)){
+             printOutput(temp.value,convertDecToFis(temp.value));
         } 
         else 
-        if(isFis(num.value)){
-            printOutput(num.value,convertFisToDec(num.value));
+        if(isFis(temp.value)){
+            printOutput(temp.value,convertFisToDec(temp.value));
         } 
         else 
-        if(isExpression(num.value)){
-            printOutput(num.value,convertDecToFis(doMath(num.value)));
+        if(isExpression(temp.value)){
+            printOutput(temp.value,convertDecToFis(doMath(temp.value)));
         } 
         else {
-            printError(num.value);
+            printError(temp.value);
         }
     }
 }

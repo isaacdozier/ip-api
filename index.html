@@ -1,59 +1,90 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-	<meta charset="utf-8">
-	<title>Precision Construction Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+	<title>Inch Fraction Construction Calculator</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-<div id="Content">
-	<div>
-		<div>
-			<h1 class="heading">Precision Inch Fraction<br />Construction Calculator</h1>
-		</div>
-		<div>
-			<input type="text" id="f" placeholder="0.00" onkeydown="calculate(this)"/>
-			<p id="userMessage"></p>
-			<p id="result"></p>
-		</div>
-		<div class="conversion">
-			<h3>Convert Numbers</h3>
-			<p>Decimal to Inch Fraction
-			<br />0.000'  >>>  00-00-00
-			<br />
-			<br />Inch Fraction to Decimal
-			<br />00-00-00  >>>  0.000'</p>
+	<div id="Content" class="container">
+		<div class="row">
+			<div class="col-lg-auto">
+				<h1 class="heading">Precision Inch Fraction<br />Construction Calculator</h1>
+			</div>
 			
-			<h3>Convert Expressions</h3>
-			<p>0.00 + 0.00 >>> 00-00-00
-			<br />0.00 + 00-00-00 >>> 00-00-00
-			<br />00-00-00 + 00-00-00 >>> 00-00-00</p>
+			<div class="col-lg-auto">
+				<input type="text" id="f" placeholder="0.00" onkeydown="calculate(this)"/>
+				
+			</div>
 			
-			<h4>Latest Updates</h4>
-			<p>v1.1.1-beta:<br />Add expression feature(currently only addition is accepted).<br />Added feature allowing to convert from inch fraction (FIS) to decimal.<br />Added feature to allow adding decimal numbers to inch fraction numbers.</p>
+			<div class="col-lg-auto">
+				<button class="button" onclick="calculate()">Calculate</button>
+			</div>
 		</div>
-		<div>
-			<p class="foot">
-				Version: 1.1.3-beta
-			</p>
+		
+		<div class="row output">
+			<div class="col">
+				<p id="userMessage"></p>
+				<p id="result"></p>
+			</div>
+		</div>
+		
+		<div class="row info">
+			<div class="conversion col-md">
+				<h3>Convert Numbers</h3>
+				<p>Decimal to Inch Fraction
+				<br />0.000'  >>>  00-00-00
+				<br />
+				<br />Inch Fraction to Decimal
+				<br />00-00-00  >>>  0.000'</p>
+			</div>
+			<div class="conversion col-md">	
+				<h3>Convert Expressions</h3>
+				<p>0.00 + 0.00 >>> 00-00-00
+				<br />0.00 + 00-00-00 >>> 00-00-00
+				<br />00-00-00 + 00-00-00 >>> 00-00-00</p>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="conversion col">	
+				<h4>Latest Updates</h4>
+				<p>v1.1.1-beta:<br />Add expression feature(currently only addition is accepted).<br />Added feature allowing to convert from inch fraction (FIS) to decimal.<br />Added feature to allow adding decimal numbers to inch fraction numbers.</p>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col">
+				<p class="foot">
+					v1.1.4-beta
+				</p>
+			</div>
 		</div>
 	</div>
-</div>
 
-<script src="calculate.js"></script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112421020-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-112421020-1');
-</script>
-
-
-</body>
+	<script src="calculate.js"></script>
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112421020-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'UA-112421020-1');
+	</script>
+	
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  </body>
 </html>
