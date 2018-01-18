@@ -2,28 +2,47 @@
 <html lang="en-us">
 
 <head>
-<meta charset="utf-8">
-<title>Precision Construction Calculator</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+	<title>Precision Construction Calculator</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
 <div id="Content">
+	<div>
 		<div>
 			<h1 class="heading">Precision Inch Fraction<br />Construction Calculator</h1>
 		</div>
-		<input type="text" id="f" placeholder="0.00" onkeydown="calculate(this)"/>
-		<p id="userMessage"></p>
-		<p id="result"></p>
 		<div>
-			<p class="conversion">0.000'  >>>  00-00-00</p>
-			<p class="conversion">Convert Decimal to Foot-Inch-Sixteenth</p>
+			<input type="text" id="f" placeholder="0.00" onkeydown="calculate(this)"/>
+			<p id="userMessage"></p>
+			<p id="result"></p>
+		</div>
+		<div class="conversion">
+			<h3>Convert Numbers</h3>
+			<p>Decimal >>> Inch Fraction
+			<br />0.000'  >>>  00-00-00
+			<br />
+			<br />Inch Fraction >>> Decimal
+			<br />00-00-00  >>>  0.000'</p>
+			
+			<h3>Convert Expressions</h3>
+			<p>0.00 + 0.00 >>> 00-00-00
+			<br />0.00 + 00-00-00 >>> 00-00-00
+			<br />00-00-00 + 00-00-00 >>> 00-00-00</p>
+			
+			<h3>Don't Forget</h3>
+			<p>Reference your history for previous conversions or calculations.</p>
+			
+			<h4>Latest Updates</h4>
+			<p>v1.1.0-beta: Scale code. Add expression feature(currently only addition is accepted). Added feature allowing to convert from inch fraction (FIS) to decimal. Added feature to allow adding decimal numbers to inch fraction numbers.</p>
+		</div>
+		<div>
 			<p class="foot">
-				Version: 1.1.1-beta
-				<br />
-				API coming soon
+				Version: 1.1.2-beta
 			</p>
 		</div>
+	</div>
 </div>
 
 <script src="calculate.js"></script>
