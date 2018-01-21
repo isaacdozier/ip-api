@@ -5,10 +5,11 @@
     text-align: center;
 }
 
-#f{
+#input{
 	font-size: 26px;
-	width: 100%;
-	max-width: 300px;
+    background: #1d2124;
+    outline: 0;
+    color: #dee2e6;
 }
 
 p {
@@ -26,7 +27,12 @@ p {
 }
 
 .converstion{
-	font-size: 14px;
+	padding: 8px;
+}
+
+.updates{
+	padding: 8px;
+	text-align: left;
 }
 
 .decimal{
@@ -36,7 +42,7 @@ p {
 }
 
 .heading{
-	font-size: 22px;
+	font-size: 16px;
     font-family: monospace;
 }
 
@@ -55,10 +61,13 @@ p {
 }
 
 .button {
-	margin-top: 10px;
-	line-height: 40px;
+	line-height: 26px;
+	margin: 4px 0px 2px 4px;
 }
 
 .inputBox {
 	margin-top: 10px;
+	border: none; 
+	background: transparent; 
+	outline: 0;
 }

@@ -3,12 +3,12 @@ var tempActive = false
 var inchTrue, footTrue, sixTrue, sixRoun
 var rem, p = '', n = ''
 var foot = 0, inch = 0, six = 0
-var fis, result, outputOne, outputTwo, compile 
+var fis, result, output, compile 
 var dec = 0
 var history
 
 function calculate() {
-    var temp = document.getElementById('f')
+    var temp = document.getElementById('input')
     if(event.keyCode == 13 || event.button == 0) {
         if(temp.value === '' || temp.value === 0){
             printAlert()
@@ -129,39 +129,30 @@ function printOutput(a,b){
         p = "+"
     }
     
-    outputOne = "<span class='solution'>" 
+    output = "<span class='solution'>" 
                     + a + " = " + n + b[0] 
                 + "</span>"
-                
-    if(b[1]){
-        outputTwo = "<span class='decimal rem-" 
-                        + Math.sign(b[1]) + "'>"
-                        + p + remainder
-                    + "</span>"
-    } else{
-        outputTwo = ''
-    }
     
-    compile = "<div class='output'>" + outputOne + outputTwo + "</div>"
+    compile = "<div class='output'>" + output + "</div>"
     
     //compile history
     document.getElementById('result').innerHTML = historyCheck(compile)
     
     //clear input box & user message
-    document.getElementById('f').value = ''
+    document.getElementById('input').value = ''
     document.getElementById('userMessage').innerHTML = ''
 }
 
 function printError(source){
     var errorMsg = "error:" + source + " is not a number or expression"
-    outputOne = "<div class='output error'>" + errorMsg + "</div>"
+    output = "<div class='output error'>" + errorMsg + "</div>"
     
     //compile history
-    document.getElementById('result').innerHTML = historyCheck(outputOne)
+    document.getElementById('result').innerHTML = historyCheck(output)
     document.getElementById('userMessage').innerHTML = 'enter a number'
     
     //clear input box & user message
-    document.getElementById('f').value = ''
+    document.getElementById('input').value = ''
     document.getElementById('userMessage').innerHTML = ''
 }
 

@@ -15,27 +15,23 @@
 <body>
 	<div id="Content" class="container">
 		<div class="row">
-			<div class="col-sm-12 col-md-12 col-lg-12">
+			<div class="col-sm-12 col-md-6 col-lg-4">
 				<h1 class="heading">Inch Fraction<br />Calculator</h1>
 			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-sm-12 col-md-6 col-lg-6 inputBox">
-				<input type="text" id="f" placeholder="0.00" onkeydown="calculate(this)"/>
-			</div>
 			
-			<div class="col-sm-12 col-md-6 col-lg-6 button">
-				<button onclick="calculate()">Calculate</button>
+			<div class="col-sm-12 col-md-6 col-lg-8 input-group">
+			  <input type="text" class="form-control" id="input" placeholder="0.00" onkeydown="calculate(this)" max-length="100" autocomplete="off">
+			  <div class="input-group-btn">
+			    <button class="button btn btn-primary btn-lg" type="submit" onclick="calculate()" value="Calculate">=
+			    </button>
+			  </div>
 			</div>
 		</div>
 		
 		<div class="row output">
 			<div class="col">
-				<span id="userMessage"></span>
-				<p id="result">
-					
-				</p>
+				<span id="userMessage">Converts and calculates feet in decimal format to inch-fraction. Can also convert inch-fraction to decimal format. Accurate to within 0.03125 inches (0.5 sixteenth).<br /><br />|| More Information Below ||</span>
+				<p id="result"></p>
 			</div>
 		</div>
 		
@@ -43,23 +39,23 @@
 			<div class="conversion col-md">
 				<h3>Convert Numbers</h3>
 				<p>Decimal to Inch Fraction
-				<br />0.000'  >>>  00-00-00
+				<br />0.000  =  00-00-00
 				<br />
 				<br />Inch Fraction to Decimal
-				<br />00-00-00  >>>  0.000'</p>
+				<br />00.00.00  =  0.000</p>
 			</div>
 			<div class="conversion col-md">	
 				<h3>Convert Expressions</h3>
-				<p>0.00 + 0.00 >>> 00-00-00
-				<br />0.00 + 00-00-00 >>> 00-00-00
-				<br />00-00-00 + 00-00-00 >>> 00-00-00</p>
+				<p>0.00 +/- 0.00 = 00-00-00
+				<br />0.00 +/- 00.00.00 = 00-00-00
+				<br />00.00.00 +/- 00.00.00 = 00-00-00</p>
 			</div>
 		</div>
 		
 		<div class="row">
-			<div class="conversion col">	
+			<div class="updates col">	
 				<h4>Important Updates</h4>
-				<p>v1.2.0-beta:<br />Added feature allowing subtraction to be used in expressions.<br />Expressions can currently include addition and subtraction operators simultaniously.<br />Negative numbers can also be used in expressions.<br />Fixed big causing negitive numbers to miscalculate.<br />Fixed bug causing zero to equate as negative.<br />Fixed error handling.</p>
+				<p>v1.2.0-beta:<br />Added feature allowing subtraction to be used in expressions.<br />Expressions can currently include addition and subtraction operators simultaniously.<br />Negative numbers can also be used in expressions.<br />Fixed bug causing negitive numbers to miscalculate.<br />Fixed bug causing zero to equate as negative.<br />Fixed error handling.</p>
 				<p>v1.1.1-beta:<br />Add expression feature(currently only addition is accepted).<br />Added feature allowing to convert from inch fraction (FIS) to decimal.<br />Added feature to allow adding decimal numbers to inch fraction numbers.</p>
 			</div>
 		</div>
@@ -67,7 +63,7 @@
 		<div class="row">
 			<div class="col">
 				<p class="foot">
-					v1.2.1-beta
+					v1.2.2-beta
 				</p>
 			</div>
 		</div>
