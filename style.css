@@ -44,21 +44,13 @@
     font-family: monospace;
 }
 
-.fis{
+.solution{
 	font-size: 18px;
 }
 
-.rem-1{
-	color: green;
-}
-
-.rem--1{
-	color: red;
-}
-
-.rem-0, rem--0, rem-NaN{
-	color: blue;
-}
+.rem-1{color: green}
+.rem--1{color: red}
+.rem-0, rem--0, rem-NaN{color: blue}
 
 .foot{
 	font-size: 10px;
@@ -67,5 +59,10 @@
 }
 
 .button {
-	margin-top: 24px;
+	margin-top: 20px;
+	line-height: 40px;
+}
+
+inputBox {
+	margin-top: 20px;
 }

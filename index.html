@@ -15,17 +15,18 @@
 <body>
 	<div id="Content" class="container">
 		<div class="row">
-			<div class="col-lg-auto">
+			<div class="col-sm-12 col-md-12 col-lg-12">
 				<h1 class="heading">Precision Inch Fraction<br />Construction Calculator</h1>
 			</div>
-			
-			<div class="col-lg-auto">
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-12 col-md-6 col-lg-6 inputBox">
 				<input type="text" id="f" placeholder="0.00" onkeydown="calculate(this)"/>
-				
 			</div>
 			
-			<div class="col-lg-auto">
-				<button class="button" onclick="calculate()">Calculate</button>
+			<div class="col-sm-12 col-md-6 col-lg-6 button">
+				<button onclick="calculate()">Calculate</button>
 			</div>
 		</div>
 		
@@ -55,7 +56,8 @@
 		
 		<div class="row">
 			<div class="conversion col">	
-				<h4>Latest Updates</h4>
+				<h4>Important Updates</h4>
+				<p>v1.2.0-beta:<br />Added feature allowing subtraction to be used in expressions. Expressions can currently include addition and subtraction operators simultaniously. Negative numbers can also be used in expressions. Fixed big causing negitive numbers to miscalculate. Fixed bug causing zero to equate as negative. Fixed error handling.</p>
 				<p>v1.1.1-beta:<br />Add expression feature(currently only addition is accepted).<br />Added feature allowing to convert from inch fraction (FIS) to decimal.<br />Added feature to allow adding decimal numbers to inch fraction numbers.</p>
 			</div>
 		</div>
@@ -63,7 +65,7 @@
 		<div class="row">
 			<div class="col">
 				<p class="foot">
-					v1.1.4-beta
+					v1.2.0-beta
 				</p>
 			</div>
 		</div>
