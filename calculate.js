@@ -3,7 +3,7 @@ var tempActive = false
 var inchTrue, footTrue, sixTrue, sixRoun
 var rem, p = '', n = ''
 var foot = 0, inch = 0, six = 0
-var fis, result, output, compile 
+var fis, result, output
 var dec = 0
 var history
 
@@ -37,9 +37,6 @@ function doMath(exp){
     // add empty index 0 to store result
     list.splice(0,0,0)
     
-    console.log('math: list: ')
-    console.log(list)
-    
     //loop through expression, do some math
     while(list.length > 1){
         var temp = list[1]
@@ -56,8 +53,6 @@ function doMath(exp){
             }
         }
         
-        console.log(temp)
-        
         list[0] = Number(list[0]) + Number(temp)
         list.splice(1,1)
     }
@@ -68,13 +63,9 @@ function doMath(exp){
 }
 
 function convertDecToFis(decimal){
-    var temp = decimal
-    
-    tempActive = false
-    if(returnNegative(decimal)){
-        temp = decimal * -1
-        tempActive = true
-    }
+    var temp = Number(decimal)
+    tempActive = false;
+    revZero(temp)
     
     footTrue = temp
     inchTrue = temp * 12
@@ -85,58 +76,37 @@ function convertDecToFis(decimal){
     inch = Math.floor(sixRoun / 16) - (foot * 12)
     six  = sixRoun - (((foot * 12) + inch) * 16)
     dec  = sixTrue - sixRoun
+    
+    revZero(foot)
    
     fis = foot + " - " + inch + " - " + six
     rem = (dec*100).toFixed(2)
-    console.log('dec-fis: value: ')
-    console.log([fis,rem])
     
     return [fis,rem]
 }
 
 function convertFisToDec(fis){
     var temp = fis.split('.')
-    
-    tempActive = false
-    if(temp[0] === '' && temp.length > 3){
-        tempActive = true
-        temp.splice(0,1)
-        console.log('fis-dec: is-negative: ')
-        console.log(temp)
-    }
+    tempActive = false;
+    revZero(temp[0])
     
     temp[1] = temp[1] / 12
     temp[2] = (temp[2] / 16) / 12
-    console.log (temp)
     dec = (Number(temp[0]) + temp[1] + temp[2]).toFixed(3)
-   
-    return [dec]
+    
+    return [revZero(dec)]
 }
 
 
 
 function printOutput(a,b){
-    var remainder = (b[1]/100).toFixed(2)
     
-    n = ''
-    if(tempActive){
-        remainder = remainder * -1
-        n = "-"
-    }
-    
-    p = ''
-    if(remainder > 0){
-        p = "+"
-    }
-    
-    output = "<span class='solution'>" 
-                    + a + " = " + n + b[0] 
-                + "</span>"
-    
-    compile = "<div class='output'>" + output + "</div>"
+    output = "<div class='solution output'>" 
+                    + a + " = " + b[0] 
+                + "</div>"
     
     //compile history
-    document.getElementById('result').innerHTML = historyCheck(compile)
+    document.getElementById('result').innerHTML = historyCheck(output)
     
     //clear input box & user message
     document.getElementById('input').value = ''
@@ -145,7 +115,7 @@ function printOutput(a,b){
 
 function printError(source){
     var errorMsg = "error:" + source + " is not a number or expression"
-    output = "<div class='output error'>" + errorMsg + "</div>"
+    output = "<div class='error'>" + errorMsg + "</div>"
     
     //compile history
     document.getElementById('result').innerHTML = historyCheck(output)
@@ -202,6 +172,14 @@ function returnNegative(n){
     return 0 > n
 }
 
-function reverseZero(np) {
-    return np * -1
+function revZero(np) {
+    var isNeg = np < 0
+    if(tempActive || isNeg){
+        if(isNeg){
+            tempActive = true
+        }
+        return np * -1
+    } else {
+        return np
+    }
 }

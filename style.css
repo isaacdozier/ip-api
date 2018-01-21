@@ -1,6 +1,5 @@
 #Content {
 	font-family: Arial, Helvetica, sans-serif;
-    background-color: #e9ecef;
     padding: 10px;
     text-align: center;
 }
@@ -12,14 +11,25 @@
     color: #dee2e6;
 }
 
+.top{
+	padding-top: 20px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    margin-bottom: 16px;
+}
+
 p {
 	background-color: white;
     border-top: 1px solid #8e8e8e;
 }
 
+.outputBox{
+	min-height: 180px;
+}
+
 .output{
 	padding-bottom: 10px;
-	margin-top: 10px
+	padding-top: 10px
 }
 
 .error{
@@ -33,6 +43,10 @@ p {
 .updates{
 	padding: 8px;
 	text-align: left;
+}
+
+.updates p{
+	padding:8px;
 }
 
 .decimal{
