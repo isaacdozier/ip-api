@@ -1,14 +1,8 @@
 #Content {
 	font-family: Arial, Helvetica, sans-serif;
-	background-color: #dedcc2;
-	border-radius: 8px;
-	padding: 10px;
-	text-align: center;
-	border-right: 3px solid #73704a;
-    border-left: 1px solid #73704a;
-    border-bottom: 4px solid #73704a;
-    border-top: 1px solid #73704a;
-    margin-top: 16px
+    background-color: #e9ecef;
+    padding: 10px;
+    text-align: center;
 }
 
 #f{
@@ -17,12 +11,14 @@
 	max-width: 300px;
 }
 
+p {
+	background-color: white;
+    border-top: 1px solid #8e8e8e;
+}
+
 .output{
-	background-color: #c1c1b6;
-	padding-top: 4px;
-	padding-bottom: 4px;
-	margin-top: 24px;
-	margin-bottom: 18px;
+	padding-bottom: 10px;
+	margin-top: 10px
 }
 
 .error{
@@ -59,10 +55,10 @@
 }
 
 .button {
-	margin-top: 20px;
+	margin-top: 10px;
 	line-height: 40px;
 }
 
-inputBox {
-	margin-top: 20px;
+.inputBox {
+	margin-top: 10px;
 }
