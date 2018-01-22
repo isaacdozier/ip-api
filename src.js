@@ -1,6 +1,6 @@
 
 
-var fisConvert = (function (num) {
+function fisConvert(num) {
     var temp, tempActive = false
     var inchTrue, footTrue, sixTrue, sixDeci, sixRoun
     var foot = 0, inch = 0, six = 0
@@ -45,4 +45,4 @@ var fisConvert = (function (num) {
             return [2, errorMsg]
         }
     }
-})
+}
