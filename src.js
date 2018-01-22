@@ -1,7 +1,6 @@
-
-
-var fisConvert = function(num) {
-    var temp, tempActive = false
+var fisConvert = function() {
+    var temp = document.getElementById('input')
+    var tempActive = false
     var inchTrue, footTrue, sixTrue, sixDeci, sixRoun
     var foot = 0, inch = 0, six = 0
     var fis, result, output 
@@ -10,15 +9,15 @@ var fisConvert = function(num) {
     var errorMsg = 'error'
     
     if(event.keyCode == 13) {
-        if(num.value === ''){
+        if(temp.value === ''){
             return [0, errorMsg]
         } else
-        if(!isNaN(num.value)){
+        if(!isNaN(temp.value)){
             
-            temp = num.value
+            
             tempActive = false
-            if(num.value < 0){
-                temp = num.value * -1
+            if(temp.value < 0){
+                temp = temp.value * -1
                 tempActive = true
             }
             
