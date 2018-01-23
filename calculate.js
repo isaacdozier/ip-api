@@ -34,26 +34,38 @@ function calculate() {
 function doMath(exp){
     var list = exp.split("+")
     
-    // add empty index 0 to store result
     list.splice(0,0,0)
     
     //loop through expression, do some math
     while(list.length > 1){
-        var temp = list[1]
-        var tempArray = temp.split('-')
-        if(isFis(temp)){
-            temp = convertFisToDec(temp)[0]
+        var A = list[0]
+        var B = list[1]
+        var tempB = B.split('-')
+        
+        if(isFis(B)){
+            B = convertFisToDec(B)[0]
         } 
-        if(tempArray.length > 1){
-            while(tempArray.length > 1){
-                if(isFis(tempArray[0])){tempArray[0] = convertFisToDec(tempArray[0])[0]}
-                if(isFis(tempArray[1])){tempArray[1] = convertFisToDec(tempArray[1])[0]}
-                temp = Number(tempArray[0]) - Number(tempArray[1])
-                tempArray.splice(1,1)
+        
+        if(tempB.length > 1){
+            if(isFis(tempB[0])){
+                tempB[0] = convertFisToDec(tempB[0])[0]
+            }
+            while(tempB.length > 1){
+                console.log(tempB)
+                //convert numbers to decimal
+                if(isFis(tempB[0])){tempB[0] = convertFisToDec(tempB[0])[0]}
+                if(isFis(tempB[1])){tempB[1] = convertFisToDec(tempB[1])[0]}
+                    
+                //subtract A from B
+                B = Number(tempB[0]) - Number(tempB[1])
+                tempB.splice(1,1)
+                console.log(tempB)
+                console.log(A)
             }
         }
         
-        list[0] = Number(list[0]) + Number(temp)
+        //add A and B
+        list[0] = Number(A) + Number(B)
         list.splice(1,1)
     }
     
@@ -63,9 +75,8 @@ function doMath(exp){
 }
 
 function convertDecToFis(decimal){
-    var temp = Number(decimal)
-    tempActive = false;
-    revZero(temp)
+    
+    var temp = revZero(Number(decimal))
     
     footTrue = temp
     inchTrue = temp * 12
@@ -77,8 +88,8 @@ function convertDecToFis(decimal){
     six  = sixRoun - (((foot * 12) + inch) * 16)
     dec  = sixTrue - sixRoun
     
-    revZero(foot)
-   
+    
+    foot = revZero(foot)
     fis = foot + " - " + inch + " - " + six
     rem = (dec*100).toFixed(2)
     
@@ -87,14 +98,15 @@ function convertDecToFis(decimal){
 
 function convertFisToDec(fis){
     var temp = fis.split('.')
-    tempActive = false;
-    revZero(temp[0])
     
+    if(temp[0])
+    
+    temp[0] = revZero(temp[0])
     temp[1] = temp[1] / 12
     temp[2] = (temp[2] / 16) / 12
-    dec = (Number(temp[0]) + temp[1] + temp[2]).toFixed(3)
+    dec = revZero((Number(temp[0]) + temp[1] + temp[2]).toFixed(3))
     
-    return [revZero(dec)]
+    return [dec]
 }
 
 
@@ -155,18 +167,15 @@ function isFis(z){
     var isNumOne = isNumber(zArray[0])
     var isNumTwo = isNumber(zArray[zArray.length-1])
     
-    console.log(zArray)
-    console.log(len)
-    console.log(isNumOne)
-    console.log(isNumTwo)
-    
     return len && isNumOne && isNumTwo
     
 }
 
 function isExpression(y){
-    return y.split(/([-+])\w+/g).length > 1
+    var len = y.split(/([-+])\w+/g).length > 1
+    return len
 }
+
 
 function returnNegative(n){
     return 0 > n
@@ -177,6 +186,8 @@ function revZero(np) {
     if(tempActive || isNeg){
         if(isNeg){
             tempActive = true
+        } else {
+            tempActive = false;
         }
         return np * -1
     } else {

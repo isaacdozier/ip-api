@@ -85,3 +85,7 @@ p {
 	background: transparent; 
 	outline: 0;
 }
+
+#result{
+	margin-top: 18px;
+}
