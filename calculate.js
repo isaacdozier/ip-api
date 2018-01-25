@@ -1,11 +1,5 @@
 var userInput = ''
 var tempActive = false
-var inchTrue, footTrue, sixTrue, sixRoun
-var rem, p = '', n = ''
-var foot = 0, inch = 0, six = 0
-var fis, result, output
-var dec = 0
-var history
 
 function calculate() {
     var temp = document.getElementById('input')
@@ -14,7 +8,7 @@ function calculate() {
             printAlert()
         } 
         else
-        if(isNumber(temp.value)){
+        if(isNum(temp.value)){
              printOutput(temp.value,convertDecToFis(temp.value))
         } 
         else 
@@ -33,7 +27,6 @@ function calculate() {
 
 function doMath(exp){
     var list = exp.split("+")
-    
     list.splice(0,0,0)
     
     //loop through expression, do some math
@@ -55,7 +48,7 @@ function doMath(exp){
                 //convert numbers to decimal
                 if(isFis(tempB[0])){tempB[0] = convertFisToDec(tempB[0])[0]}
                 if(isFis(tempB[1])){tempB[1] = convertFisToDec(tempB[1])[0]}
-                    
+    
                 //subtract A from B
                 B = Number(tempB[0]) - Number(tempB[1])
                 tempB.splice(1,1)
@@ -63,20 +56,25 @@ function doMath(exp){
                 console.log(A)
             }
         }
-        
         //add A and B
         list[0] = Number(A) + Number(B)
         list.splice(1,1)
+        
+        console.log(list[0])
     }
-    
     // return Decimal and
     // convert expression result to FIS standard
     return Number(list[0])
 }
 
+//var used in convertDecToFis() and convertFisToDec()
+var dec = 0
+
 function convertDecToFis(decimal){
-    
     var temp = revZero(Number(decimal))
+    var inchTrue, footTrue, sixTrue, sixRoun, rem
+    var foot = 0, inch = 0, six = 0
+    var fis, result
     
     footTrue = temp
     inchTrue = temp * 12
@@ -87,7 +85,6 @@ function convertDecToFis(decimal){
     inch = Math.floor(sixRoun / 16) - (foot * 12)
     six  = sixRoun - (((foot * 12) + inch) * 16)
     dec  = sixTrue - sixRoun
-    
     
     foot = revZero(foot)
     fis = foot + " - " + inch + " - " + six
@@ -109,10 +106,58 @@ function convertFisToDec(fis){
     return [dec]
 }
 
+function isNum(x){
+    return !isNaN(x)
+}
 
-
-function printOutput(a,b){
+function isFis(z){
+    var zArray = z.split('.')
+    tempActive = false
     
+    if(zArray[0] === '' && zArray.length > 1){
+        zArray.splice(0,1)
+        tempActive = true
+    }
+    
+    var len   = zArray.length === 3
+    var isNumOne = isNum(zArray[0])
+    var isNumTwo = isNum(zArray[zArray.length-1])
+    var isExp = isExpression(z)
+    
+    return len && isNumOne && isNumTwo && !isExp
+}
+
+function isExpression(y){
+    var len = y.split(/([-+])\w+/g).length > 1
+    return len
+}
+
+function revZero(np) {
+    var isNeg = np < 0
+    if(tempActive || isNeg){
+        if(isNeg){
+            tempActive = true
+        } else {
+            tempActive = false;
+        }
+        return np * -1
+    } else {
+        return np
+    }
+}
+
+var history, output
+
+function historyCheck(h){
+    if(!history)
+    	return h
+    else 
+   	    return h + document.getElementById('result').innerHTML
+}
+
+//Print functions
+//
+function printOutput(a,b){
     output = "<div class='solution output'>" 
                     + a + " = " + b[0] 
                 + "</div>"
@@ -140,57 +185,4 @@ function printError(source){
 
 function printAlert(){
     document.getElementById('userMessage').innerHTML = 'enter a number'
-}
-
-function historyCheck(h){
-    if(!history)
-    	return h
-    else 
-   	    return h + document.getElementById('result').innerHTML
-    
-}
-
-function isNumber(x){
-    return !isNaN(x)
-}
-
-function isFis(z){
-    var zArray = z.split('.')
-    
-    tempActive = false
-    if(zArray[0] === '' && zArray.length > 1){
-        zArray.splice(0,1)
-        tempActive = true
-    }
-    
-    var len   = zArray.length === 3
-    var isNumOne = isNumber(zArray[0])
-    var isNumTwo = isNumber(zArray[zArray.length-1])
-    
-    return len && isNumOne && isNumTwo
-    
-}
-
-function isExpression(y){
-    var len = y.split(/([-+])\w+/g).length > 1
-    return len
-}
-
-
-function returnNegative(n){
-    return 0 > n
-}
-
-function revZero(np) {
-    var isNeg = np < 0
-    if(tempActive || isNeg){
-        if(isNeg){
-            tempActive = true
-        } else {
-            tempActive = false;
-        }
-        return np * -1
-    } else {
-        return np
-    }
 }
