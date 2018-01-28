@@ -15,7 +15,8 @@
 	margin: 16px;
 }
 .main{
-	padding: 24px;	
+	margin: 0 auto;
+	min-height: 180px
 }
 
 .top{
