@@ -12,14 +12,12 @@
 }
 
 #ad {
-	margin-bottom: 16px
+	margin: 16px;
 }
 
 .top{
-	padding-top: 20px;
-    padding-bottom: 10px;
+	padding-top: 8px;
     padding-right: 15px;
-    margin-bottom: 16px;
 }
 
 p {

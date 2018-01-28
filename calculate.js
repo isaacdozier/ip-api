@@ -148,9 +148,14 @@ function revZero(np) {
     }
 }
 
-var history, output
+var history, output, cnt = 0
 
 function historyCheck(h){
+    cnt++
+    if(cnt === 10){
+        h = h + ad + 'test'
+        cnt = 0
+    }
     if(!history)
     	return h
     else 
