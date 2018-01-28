@@ -14,6 +14,15 @@
 #ad {
 	margin: 16px;
 }
+
+.history{
+	margin-top: 24px;
+	margin-bottom: 24px;
+	background-color: #007bff30;
+    border: 1px solid #1d21249e;
+    border-radius: 6px;
+}
+
 .main{
 	margin: 0 auto;
 	min-height: 200px;
@@ -22,12 +31,6 @@
 
 .top{
 	padding-top: 8px;
-    padding-right: 15px;
-}
-
-p {
-	background-color: white;
-    border-top: 1px solid #8e8e8e;
 }
 
 .outputBox{
@@ -41,6 +44,16 @@ p {
 
 .error{
 	color: #e12339;
+}
+
+.info{
+	margin-top: 24px;
+	padding-top: 24px;
+	margin-bottom: 24px;
+	padding-bottom: 24px;
+	border: 1px solid #1d21249e;
+    border-radius: 6px;
+	background-color: #ffc10770
 }
 
 .converstion{
