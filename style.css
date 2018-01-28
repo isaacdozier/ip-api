@@ -16,7 +16,8 @@
 }
 .main{
 	margin: 0 auto;
-	min-height: 180px
+	min-height: 200px;
+	line-height: 200px
 }
 
 .top{
