@@ -148,18 +148,14 @@ function revZero(np) {
     }
 }
 
-var history, output, cnt = 0
+var history, output
 
 function historyCheck(h){
-    cnt++
-    if(cnt === 10){
-        h = h + ad + 'test'
-        cnt = 0
+    if(!history){
+        return h
+    } else {
+        return h + document.getElementById('result').innerHTML
     }
-    if(!history)
-    	return h
-    else 
-   	    return h + document.getElementById('result').innerHTML
 }
 
 //Print functions
