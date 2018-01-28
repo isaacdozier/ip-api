@@ -12,7 +12,7 @@
 }
 
 #ad {
-	margin: 16px;
+	margin: 24px;
 }
 
 .history{
@@ -21,6 +21,7 @@
 	background-color: #007bff30;
     border: 1px solid #1d21249e;
     border-radius: 6px;
+    padding: 8px;
 }
 
 .main{
@@ -30,7 +31,8 @@
 }
 
 .top{
-	padding-top: 8px;
+	padding-top: 24px;
+	padding-bottom: 24px
 }
 
 .outputBox{
