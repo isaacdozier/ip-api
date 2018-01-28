@@ -1,6 +1,8 @@
 var userInput = ''
 var tempActive = false
 
+var ad = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9409668607681174" data-ad-slot="2527368291" data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>'
+
 function calculate() {
     var temp = document.getElementById('input')
     if(event.keyCode == 13 || event.button == 0) {
