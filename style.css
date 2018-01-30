@@ -34,8 +34,5 @@ body{
 .foot{
 	font-size: 10px;
 	font-weight: lighter;
-	color: #ffffff;
-	position: absolute;
-	bottom: 0px;
-	width: 100%
+	color: #464a4e;
 }
