@@ -1,14 +1,14 @@
 {
-  "name": "Alarm App",
+  "name": "IP data API",
   "version": "0.0.1-beta",
-  "description": "set an visual alrm for your car or home to prevent break ins",
-  "main": "alert.js",
+  "description": "",
+  "main": "src.js",
   "scripts": {
-    "start": "node $npm_package_main"
+    "start": ""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/isaacdozier/alarm-app/alert.git"
+    "url": "https://github.com/isaacdozier/ip-api.git"
   },
   "keywords": [
     "alarm", "car"
@@ -16,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/isaacdozier/alarm-app/issues"
+    "url": "https://github.com/isaacdozier/ip-api/issues"
   },
-  "homepage": "https://github.com/isaacdozier/alarm-app#readme"
+  "homepage": "https://github.com/isaacdozier/ip-api#readme"
 }
