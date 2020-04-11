@@ -1,5 +1,30 @@
-.ip{
-    font-size: 26px;
-    margin-top:12px;
-    margin-bottom: 12px;
+.header{
+	margin-bottom: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #212529;
+    color: white;
+}
+
+.footer{
+    margin-top: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #212529;
+    color: white;
+}
+
+#map {
+  height: 400px;
+  width: 600px;
+  margin-bottom: 24px;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 400px;
+  width: 600px
+  margin: 0;
+  padding: 0;
 }

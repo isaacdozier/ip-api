@@ -20,18 +20,40 @@
     <!-- Add icon library -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    
 
 	<title>IP API</title>
 </head>
 
 <body>
 	<div id="Content" class="container">
-		<div class="row ip" id="ip"></div>
+		<div class="row header">
+			<div class="col">
+				<h1>The Power of API's</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<h2>Google Maps API</h2>
+				<a target="_blank" href="https://developers.google.com/maps/documentation/javascript/tutorial">developers.google.com/maps/documentation/javascript/tutorial</a>
+
+				<div class="row" id="map"></div>
+	    		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqdsK4nVCFboMHQgXU-zRxe7_QU2LQNdE&callback=initMap" async defer></script>
+			</div>
+
+			<div class="col">
+				<h2>IP Address API</h2>
+				<a target="_blank" href="https://ipdata.co/">ipdata.co</a>
+
+				<p id="ip"></p>
+			</div>
+		</div>
 		
-		<div class="row foot">
+		<div class="row footer">
 			<div class="col">
 				<p>
-				 IP API v0.1.1-beta
+				 IP API v1.0.0
 				 <br />
 				 Developement In-Progress
 				 <br />
